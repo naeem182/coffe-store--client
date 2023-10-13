@@ -1,6 +1,8 @@
 
+import { Link } from 'react-router-dom';
 import swal from 'sweetalert'
 const Addcoffe = () => {
+
 
     const handleAddCoffee = event => {
         event.preventDefault();
@@ -121,6 +123,7 @@ const Addcoffe = () => {
                 <input type="submit" value="Add Coffee" className="btn btn-block" />
 
             </form>
+            <Link to={'/'}> <h3>back</h3></Link>
         </div>
     );
 };
