@@ -17,8 +17,8 @@ function App() {
           coffees.map(coffee => <CoffeeCard
             key={coffee._id}
             coffee={coffee}
-            coffees={coffees}
-            setCoffees={setCoffees}
+          // coffees={coffees}
+          // setCoffees={setCoffees}
           ></CoffeeCard>)
         }
       </div>
