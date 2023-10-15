@@ -1,9 +1,12 @@
 
+import { useContext } from "react";
+import { Authcontex } from "../../Provider/AuthProvider";
+
 
 
 const SignIn = () => {
 
-
+    const { signInUser } = useContext(Authcontex);
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -12,8 +15,22 @@ const SignIn = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        signInUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                const user = {
+                    email,
+                    lastLoggedAt: result.user?.metadata?.lastSignInTime
+                }
+                // update last logged at in the database
 
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
+
+
 
     return (
         <div className="hero min-h-screen bg-base-200">

@@ -7,8 +7,9 @@ import CoffeeCard from './components/CoffeeCard';
 function App() {
 
   const loadedCoffees = useLoaderData();
+
   const [coffees, setCoffees] = useState(loadedCoffees);
-  
+
 
   return (
     <div className='m-20'>
@@ -26,7 +27,7 @@ function App() {
         }
 
       </div>
-      
+
     </div>
   )
 }
