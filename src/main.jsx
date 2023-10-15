@@ -11,30 +11,40 @@ import Updatecoffe from './components/Updatecoffe.jsx';
 import SignIn from './components/Login/SignIn.jsx';
 import Signup from './components/Registration/signup.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import User from './components/User/User.jsx';
+import Main from './components/LayOut/Main.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
-    loader: () => fetch('http://localhost:5000/coffee')
-  },
-  {
-    path: "/signup",
-    element: <Signup></Signup>
-  },
-  {
-    path: "/signin",
-    element: <SignIn></SignIn>,
-  },
-  {
-    path: "/addcoffee",
-    element: <Addcoffe></Addcoffe>,
-  },
-  {
-    path: "/updatecoffee/:id",
-    element: <Updatecoffe></Updatecoffe>,
-    loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
+    element: <Main></Main>,
+    children: [
+
+      {
+        path: "/",
+        element: <App></App>,
+        loader: () => fetch('http://localhost:5000/coffee')
+      },
+
+      {
+        path: "/signup",
+        element: <Signup></Signup>
+      },
+
+      {
+        path: "/addcoffee",
+        element: <Addcoffe></Addcoffe>,
+      },
+      {
+        path: "/updatecoffee/:id",
+        element: <Updatecoffe></Updatecoffe>,
+        loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
+      },
+
+
+    ]
+
   },
 
 ]);
