@@ -1,5 +1,5 @@
 
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './App.css'
 import { useState } from 'react';
 import CoffeeCard from './components/CoffeeCard';
@@ -8,7 +8,7 @@ function App() {
 
   const loadedCoffees = useLoaderData();
   const [coffees, setCoffees] = useState(loadedCoffees);
-  const navigate = useNavigate()
+  
 
   return (
     <div className='m-20'>
@@ -26,6 +26,7 @@ function App() {
         }
 
       </div>
+      
     </div>
   )
 }

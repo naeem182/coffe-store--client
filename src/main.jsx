@@ -8,6 +8,8 @@ import {
 import './index.css'
 import Addcoffe from './components/Addcoffe.jsx';
 import Updatecoffe from './components/Updatecoffe.jsx';
+import SignIn from './components/Login/SignIn.jsx';
+import Signup from './components/Registration/signup.jsx';
 
 
 const router = createBrowserRouter([
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <App></App>,
     loader: () => fetch('http://localhost:5000/coffee')
+  },
+  {
+    path: "/signup",
+    element: <Signup></Signup>
+  },
+  {
+    path: "/signin",
+    element: <SignIn></SignIn>,
   },
   {
     path: "/addcoffee",
